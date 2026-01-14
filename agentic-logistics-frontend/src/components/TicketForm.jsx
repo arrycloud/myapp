@@ -14,7 +14,7 @@ export default function TicketForm({ setTickets }) {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:8000/agent/ticket", ticket);
+      const res = await axios.post("/api/agent/ticket", ticket);
       setTickets(prev => [res.data, ...prev]);
       setTicket({ customer_id: "", issue_type: "", description: "", priority: "normal" });
     } catch (err) {

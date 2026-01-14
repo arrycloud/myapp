@@ -40,29 +40,59 @@ Agentic AI allows the system to **think and act like an operations officer**.
 
 ---
 
-## 🖼️ Real-World Architecture (Simplified)
-
-Passenger / Operator
+## 🏗️ System Architecture (Layered – Production Standard)
+Users & Motor Park Operators
+│
+├─ Ticket Submission
+├─ Route Requests
+├─ Vehicle Status Updates
 │
 ▼
-Web Interface (Frontend)
+Web Frontend (React + Nginx)
+│
+├─ Operator Dashboard
+├─ Ticket Tracking
+├─ Real-time Updates
 │
 ▼
-Agentic AI Backend
-┌───────────────────────┐
-│ • Ticket Reasoning │
-│ • Decision Planner │
-│ • Action Executor │
-│ • Memory Context │
-└───────────────────────┘
+Agentic AI Backend (FastAPI)
+│
+├─ Intent Understanding
+├─ Decision Planning
+├─ Autonomous Task Execution
 │
 ▼
-Transport & Logistics Ops
+Logistics & Motor Park Operations
+│
+├─ Vehicle Dispatch
+├─ Route Optimization
+├─ Operational Notifications
 
-yaml
-Copy code
+Why This Architecture Works
 
----
+Clear separation of responsibilities
+
+Real-world operational mapping
+
+Scalable and cloud-ready
+
+Easy to extend with new AI capabilities
+
+Dockerfile-based (no docker-compose dependency)
+
+🖼️ Real-World Context: Motor Park Operations
+
+This platform is inspired by real transportation motor parks, where:
+
+Buses and vehicles operate on fixed and dynamic routes
+
+Operators manage schedules and passenger flow
+
+Delays, rerouting, and dispatch decisions must be handled quickly
+
+Communication between staff is critical
+
+The Agentic AI acts as a digital operations manager, assisting decision-making and automating routine logistics tasks.
 
 ## ✨ Key Features
 
@@ -103,20 +133,39 @@ Copy code
 
 ## 📁 Project Structure
 
+### 📁 Project Structure
+
 agentic-logistics-system/
 │
 ├── backend/
-│ ├── app.py
-│ ├── requirements.txt
-│ └── Dockerfile
+│   ├── app.py                # Agentic AI logic
+│   ├── requirements.txt
+│   └── Dockerfile
 │
 ├── agentic-logistics-frontend/
-│ ├── src/
-│ ├── nginx.conf
-│ ├── Dockerfile
-│ └── package.json
+│   ├── src/                  # UI components
+│   ├── nginx.conf            # Reverse proxy
+│   ├── Dockerfile
+│   └── package.json
 │
 └── README.md
+
+OR
+
+agentic-logistics-system/
+│
+├── backend/
+│   ├── app.py                 # Agentic AI logic & decision engine
+│   ├── requirements.txt       # Backend dependencies
+│   └── Dockerfile             # Backend container definition
+│
+├── agentic-logistics-frontend/
+│   ├── src/                   # UI components & pages
+│   ├── nginx.conf             # Reverse proxy configuration
+│   ├── Dockerfile             # Frontend container definition
+│   └── package.json           # Frontend dependencies
+│
+└── README.md                  # Project documentation
 
 yaml
 Copy code
